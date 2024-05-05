@@ -1,6 +1,6 @@
 import java.util.*;
 
-class UCS {
+public class UCS {
     Function function = new Function();
 
     public Solution get_path_UCS(String startWord, String endWord, ArrayList<String> sameLengthWords) {

@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Solution {
-    ArrayList<String> wordList;
-    int visited_nodes;
-    double time;
+    public ArrayList<String> wordList;
+    public int visited_nodes;
+    public double time;
 
     public Solution() {
         wordList = new ArrayList<String>();
