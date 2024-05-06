@@ -19,23 +19,13 @@ public class UCS {
             String currentWord = currentPath.get(currentPath.size() - 1);
 
             if (currentWord.equals(endWord)) {
-                System.out.println("Path found!");
-                System.out.print("Path: ");
-                System.out.println(currentPath);
-                System.out.print("Cost: ");
-                // System.out.println(currentCost + 1
-                System.out.println("Node yang dilalui: " + count);
                 long endTime = System.nanoTime();
                 long timeElapsed = endTime - startTime;
-                // System.out.println("Execution time in milliseconds: " + (timeElapsed / 1000000000.00) + " detik");
-                // System.out.println(listArray.path);
                 solution.wordList = currentPath;
                 solution.time = (timeElapsed / 1000000000.00);
                 solution.visited_nodes = count;
                 return solution;
             }
-
-            // System.out.println(currentWord);
             int currentCost = listArray.cost.get(0);
             listArray.cost.remove(0);
             listArray.path.remove(0);
@@ -53,11 +43,6 @@ public class UCS {
                     listArray.cost.add(currentCost + 1);
                 }
             }
-            // System.out.println(currentPath);
-        // System.out.println(listArray.path.s/ize());
-            // if (currentPath.contains("LASE")){
-            // System.out.println(currentPath);
-            // }
         }
         long endTime = System.nanoTime();
         long timeElapsed = endTime - startTime;

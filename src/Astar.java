@@ -21,23 +21,15 @@ public class Astar {
             String currentWord = currentPath.get(currentPath.size() - 1); // Get the last word in the path
 
             if (currentWord.equals(endWord)) {
-                System.out.println("Path found!");
-                System.out.print("Path: ");
-                System.out.println(currentPath);
-                System.out.print("Cost: ");
-                System.out.println(currentPath.size());
-                System.out.println("Node yang dilalui: " + count);
                 long endTime = System.nanoTime();
                 long timeElapsed = endTime - startTime;
                 solution.wordList = currentPath;
                 solution.time = (timeElapsed / 1000000000.00);
                 solution.visited_nodes = count;
-                System.out.println("Waktu yang diperlukan: " + solution.time + " detik");
                 return solution;
             }
 
             ArrayList<String> nextPath = function.cuma_beda_satu(currentWord, sameLengthWords); // Get the next path
-            // System.out.println("Kemungkinan path: "+ nextPath);
             if (alreadyExpand.contains(currentWord) == false) {
                 alreadyExpand.add(currentWord);
             }
@@ -53,11 +45,6 @@ public class Astar {
                     listArray.cost.add(index, function.diff_Letter(s, endWord) + newPath.size()-1); // Add the cost to the list
                 }
             }
-            // System.out.println(currentPath);
-            // System.out.print (listArray.path.get(0) + " ");
-            // System.out.println(listArray.path.get(0).size());
-            // System.out.println(listArray.path.size());
-            // System.out.println(alreadyExpand);1
         }
         long endTime = System.nanoTime();
         long timeElapsed = endTime - startTime;

@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Frame extends JFrame implements ActionListener{
+public class MainFrame extends JFrame implements ActionListener{
     JPanel paneltitle, panelstartword, panelendword, panelbutton, contentPane, panelradio;
     JLabel title, label1, label2, label3;
     JTextField textField, textField2;
@@ -19,7 +19,7 @@ public class Frame extends JFrame implements ActionListener{
     Function function = new Function();
     Solution solution = new Solution();
     
-    Frame(ArrayList<String> words) {    
+    MainFrame(ArrayList<String> words) {    
         // Set ArrayList
         wordList = new ArrayList<String>();
         wordList = words;
@@ -104,7 +104,7 @@ public class Frame extends JFrame implements ActionListener{
         panelbutton.setBackground(Color.decode("0x7587B4"));
 
         contentPane = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
-        contentPane.setPreferredSize(new Dimension(600, 1000));
+        contentPane.setPreferredSize(new Dimension(600, 5000));
         contentPane.setBackground(Color.decode("0xB3BDD4"));
 
         JScrollPane scrollPane = new JScrollPane(contentPane);
@@ -139,7 +139,7 @@ public class Frame extends JFrame implements ActionListener{
             endWord = endWord.toUpperCase();
             ArrayList<String> wordList_same_length = new ArrayList<String>();
             if (startWord.length() != endWord.length() || !wordList.contains(startWord) || !wordList.contains(endWord)) {
-                label3.setText("Kata yang anda memasukkan memiliki panjang yang berbeda atau, silahkan masukkan kata yang benar");
+                label3.setText("Kata yang anda memasukkan memiliki panjang yang berbeda atau tidak valid dalam kamus, silahkan masukkan kata yang benar");
             }
             else {
                 wordList_same_length = function.get_same_Length(startWord, wordList);
@@ -164,12 +164,17 @@ public class Frame extends JFrame implements ActionListener{
                     JLabel path = new JLabel("Tidak ada jalur yang ditemukan");
                     path.setPreferredSize(new Dimension(600, 15));
                     contentPane.add(path);
-                    JLabel time = new JLabel("Waktu yang diperlukan: " + solution.time + " detik");
+                    JLabel time = new JLabel("Waktu yang diperlukan: " + String.format("%.4f", solution.time) + " detik");
                     time.setPreferredSize(new Dimension(600, 15));
                     contentPane.add(time);
                     JLabel node = new JLabel("Node yang dilalui: " + solution.visited_nodes);
                     node.setPreferredSize(new Dimension(600, 15));
                     contentPane.add(node);  
+                    for(int i = solution.wordList.size() + 2; i < 30; i++) {
+                        JLabel empty = new JLabel("                       ");
+                        empty.setPreferredSize(new Dimension(600, 15));
+                        contentPane.add(empty);
+                    }
                 }
                 else {
                     for (int i = 0; i < solution.wordList.size(); i++) {
@@ -177,21 +182,19 @@ public class Frame extends JFrame implements ActionListener{
                         path.setPreferredSize(new Dimension(600, 15));
                         contentPane.add(path);
                     }
-                    JLabel time = new JLabel("Waktu yang diperlukan: " + solution.time + " detik");
+                    JLabel time = new JLabel("Waktu yang diperlukan: " + String.format("%.4f", solution.time) + " detik");
                     time.setPreferredSize(new Dimension(600, 15));
                     contentPane.add(time);
                     JLabel node = new JLabel("Node yang dilalui: " + solution.visited_nodes);
                     node.setPreferredSize(new Dimension(600, 15));
                     contentPane.add(node);
                     for(int i = solution.wordList.size() + 2; i < 30; i++) {
-                        JLabel empty = new JLabel("      ");
+                        JLabel empty = new JLabel("                       ");
                         empty.setPreferredSize(new Dimension(600, 15));
                         contentPane.add(empty);
                     }
                 }
             }
-            System.out.println(startWord);
-            System.out.println(endWord);
             // label3.setText(wordList.get(0));
         }
     }
@@ -199,7 +202,7 @@ public class Frame extends JFrame implements ActionListener{
     public static void main(String[] args) {
         ArrayList<String> words = new ArrayList<String>();
         try {
-            File myObj = new File("words.txt");
+            File myObj = new File("dictionary.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -210,6 +213,6 @@ public class Frame extends JFrame implements ActionListener{
             System.out.println("An error occurred.");
             e.printStackTrace();
             }
-        new Frame(words);
+        new MainFrame(words);
     }
 }
