@@ -20,7 +20,7 @@ Untuk menjalankan program ini, perlu menginstal **Java Environment** pada perang
 
 ## **Cara Menjalankan Program**
 Jalankan perintah berikut di terminal untuk menjalankan program: <br>
-`$ java -cp bin MainFrame `
+`java -cp bin MainFrame `
 
 ## **Mengganti Directory** 
 Jika ingin mengganti directory, masuk ke file MainFrame.java, lalu pada line 205 masukkan nama file yang ingin digunakan
