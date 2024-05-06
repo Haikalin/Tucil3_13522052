@@ -25,7 +25,7 @@ public class MainFrame extends JFrame implements ActionListener{
         wordList = words;
 
         // Set icon
-        image = new ImageIcon("image.png");
+        image = new ImageIcon("src/image.png");
 
         // Set label
         title = new JLabel();
@@ -202,7 +202,7 @@ public class MainFrame extends JFrame implements ActionListener{
     public static void main(String[] args) {
         ArrayList<String> words = new ArrayList<String>();
         try {
-            File myObj = new File("dictionary.txt");
+            File myObj = new File("src/dictionary.txt");
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
