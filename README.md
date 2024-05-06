@@ -13,7 +13,7 @@ Untuk menjalankan program ini, perlu menginstal **Java Environment** pada perang
 ## **Cara Mengkompilasi Program**
 1. Clone repositori ini. <br>
 `https://github.com/Haikalin/Tucil3_13522052.git`
-2. Pindah ke direktori 'Tucil3_13522006'. <br>
+2. Pindah ke direktori 'Tucil3_13522052'. <br>
 `cd Tucil3_13522052`
 3. Jalankan perintah berikut di terminal untuk mengkompilasi program: <br>
 `javac -d bin src/*.java`
