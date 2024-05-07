@@ -23,7 +23,7 @@ Jalankan perintah berikut di terminal untuk menjalankan program: <br>
 `java -cp bin MainFrame `
 
 ## **Mengganti Directory** 
-Jika ingin mengganti directory, masuk ke file MainFrame.java, lalu pada line 205 masukkan nama file yang ingin digunakan
+Jika ingin mengganti directory, masuk ke file MainFrame.java, lalu pada line 205 masukkan nama file yang ingin digunakan, file directory berformat .txt dimasukkan dalam folder src
 
 ## **Room for Improvement**
 Room for improvement:
